@@ -1,0 +1,12 @@
+meta/
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+mise.local.toml
+*.tsbuildinfo
+coverage/
+playwright-report/
+test-results/
+.DS_Store
