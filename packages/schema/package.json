@@ -1,0 +1,14 @@
+{
+  "name": "@masterforms/schema",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "bun check"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  }
+}
