@@ -1,0 +1,18 @@
+name: masterforms
+services:
+  postgres:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: masterforms
+      POSTGRES_PASSWORD: masterforms
+      POSTGRES_DB: masterforms
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U masterforms"]
+      interval: 2s
+      retries: 15
+volumes:
+  pgdata:
