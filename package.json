@@ -1,0 +1,22 @@
+{
+  "name": "masterforms",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "lint": "biome ci .",
+    "format": "biome check --write .",
+    "typecheck": "bun run --filter './apps/*' --filter './packages/*' typecheck",
+    "test": "bun --bun vitest run",
+    "test:watch": "bun --bun vitest",
+    "build": "bun run --filter './apps/*' build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "fast-check": "4.10.2",
+    "vitest": "5.0.5"
+  }
+}
