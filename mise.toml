@@ -1,0 +1,23 @@
+[tools]
+bun = "1.4.3"
+gitleaks = "8.30.1"
+lefthook = "2.2.2"
+
+[env]
+_.file = ".env"
+
+[tasks.setup]
+description = "Install dependencies, git hooks and local .env"
+run = ["bun install", "lefthook install", "test -f .env || cp .env.example .env"]
+
+[tasks."db:up"]
+description = "Start Postgres"
+run = "docker compose -f infra/docker-compose.yml up -d --wait"
+
+[tasks."db:down"]
+description = "Stop Postgres"
+run = "docker compose -f infra/docker-compose.yml down"
+
+[tasks.check]
+description = "Lint, typecheck, test and scan for secrets"
+run = ["bun run lint", "bun run typecheck", "bun run test", "gitleaks git --redact --no-banner"]
