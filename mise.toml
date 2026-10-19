@@ -21,3 +21,7 @@ run = "docker compose -f infra/docker-compose.yml down"
 [tasks.check]
 description = "Lint, typecheck, test and scan for secrets"
 run = ["bun run lint", "bun run typecheck", "bun run test", "gitleaks git --redact --no-banner"]
+
+[tasks."dev:api"]
+description = "API on localhost:3000"
+run = "bun run --filter @masterforms/api dev"
