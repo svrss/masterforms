@@ -18,6 +18,10 @@ run = "docker compose -f infra/docker-compose.yml up -d --wait"
 description = "Stop Postgres"
 run = "docker compose -f infra/docker-compose.yml down"
 
+[tasks.format]
+description = "Format and apply safe lint fixes"
+run = "bun run format"
+
 [tasks.check]
 description = "Lint, typecheck, test and scan for secrets"
 run = ["bun run lint", "bun run typecheck", "bun run test", "gitleaks git --redact --no-banner"]
