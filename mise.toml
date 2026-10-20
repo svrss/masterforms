@@ -38,3 +38,12 @@ run = "bun run --filter @masterforms/web dev"
 description = "Postgres, API and web together"
 depends = ["db:up"]
 run = "mise run dev:api ::: dev:web"
+
+[tasks.ci]
+description = "Everything CI runs"
+run = [
+  "bun install --frozen-lockfile",
+  "mise run check",
+  "bun run build",
+  "bun audit --ignore=GHSA-vfj7-8cjw-p6xm",
+]
