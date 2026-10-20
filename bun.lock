@@ -22,7 +22,6 @@
     },
     "apps/web": {
       "name": "@masterforms/web",
-      "version": "0.0.1",
       "dependencies": {
         "@base-ui/react": "1.9.0",
         "@fontsource-variable/jetbrains-mono": "5.3.0",
