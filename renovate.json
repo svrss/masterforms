@@ -5,13 +5,5 @@
   "schedule": ["before 6am on monday"],
   "minimumReleaseAge": "3 days",
   "lockFileMaintenance": { "enabled": true },
-  "platformAutomerge": false,
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch", "digest", "pinDigest"],
-      "matchCurrentVersion": "!/^v?0\\./",
-      "automerge": true
-    },
-    { "groupName": "bun", "matchDepNames": ["bun", "@types/bun"] }
-  ]
+  "packageRules": [{ "groupName": "bun", "matchDepNames": ["bun", "@types/bun"] }]
 }
