@@ -2,6 +2,28 @@
 
 Thanks for your interest in masterforms! I am more than happy to accept code from external contributors, given the conventions below are followed.
 
+## Setup
+
+You need Git, Docker and [mise](https://mise.jdx.dev). mise installs everything else (Bun, gitleaks, Lefthook) at the versions the project pins. No editor setup is required.
+
+    mise trust && mise install
+    mise run setup     # dependencies, git hooks, .env
+    mise run dev       # Postgres + API + web on http://localhost:5173
+
+Before opening a PR, run `mise run check`. It runs exactly what CI runs: lint, typecheck, tests and a secret scan.
+
+- `bun run test` runs the test suite (Vitest). `bun test` is Bun's own runner and isn't used here.
+- `mise run format` formats everything with Biome. A pre-commit hook also formats staged files and blocks commits that contain secrets.
+- Want in-editor formatting and lint? Point your editor's Biome extension at the project's Biome (`node_modules/@biomejs/biome`).
+
+## Project layout
+
+- `apps/web`: the React app (Vite, TanStack Router, Tailwind, shadcn/ui on Base UI)
+- `apps/api`: the API (Hono on Bun)
+- `packages/schema`: Zod schemas and types shared by web and api
+- `packages/core`: framework-free formation logic (no DOM, no React)
+- `infra`: local Postgres now; deployment config later
+
 ## Workflow
 
 - `main` is protected. Every change goes through a branch and a pull request.
