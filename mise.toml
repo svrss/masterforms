@@ -29,3 +29,12 @@ run = ["bun run lint", "bun run typecheck", "bun run test", "gitleaks git --reda
 [tasks."dev:api"]
 description = "API on localhost:3000"
 run = "bun run --filter @masterforms/api dev"
+
+[tasks."dev:web"]
+description = "Web on localhost:5173"
+run = "bun run --filter @masterforms/web dev"
+
+[tasks.dev]
+description = "Postgres, API and web together"
+depends = ["db:up"]
+run = "mise run dev:api ::: dev:web"
