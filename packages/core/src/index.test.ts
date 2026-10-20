@@ -17,3 +17,7 @@ test("clamp always lands in [min, max]", () => {
     ),
   );
 });
+
+test("deliberately failing test to check ci blocks merges", () => {
+  expect(clamp(5, 0, 10)).toBe(0);
+});
