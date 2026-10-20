@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in Masterforms! I am more than happy to accept code from external contributors, given the conventions below are followed.
+Thanks for your interest in masterforms! I am more than happy to accept code from external contributors, given the conventions below are followed.
 
 ## Workflow
 
